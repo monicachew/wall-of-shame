@@ -1,4 +1,4 @@
-{ "certs": [
+[
 
   {
     "cn": "kliendiportaal.ravimiamet.ee",
@@ -137385,4 +137385,4 @@
     "ipAddresses": [
     ]
   }
-]}
+]
