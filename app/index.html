@@ -2,7 +2,7 @@
 <html lang="en" ng-app="phonecatApp">
 <head>
   <meta charset="utf-8">
-  <title>Google Phone Gallery</title>
+  <title>Wall of Shame</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/app.css">
   <script src="bower_components/angular/angular.js"></script>
@@ -15,23 +15,32 @@
       <div class="col-md-2">
         <!--Sidebar content-->
 
-        Search: <input ng-model="query">
+        Search: <input ng-model="query" placeholder="Filter results...">
+<!--
         Sort by:
         <select ng-model="orderProp">
-          <option value="name">Alphabetical</option>
+          <option value="issuer">Alphabetical</option>
           <option value="notBefore">Newest</option>
         </select>
+-->
 
       </div>
       <div class="col-md-10">
         <!--Body content-->
+        <ul class="issuers">
+          <li ng-repeat="issuer in topIssuers | filter:query">
+            <span>{{issuer.name}}</span>
+            <p>{{issuer.count}}</span>
+          </li>
+        </ul>
 
-        <ul class="phones">
+        <ul class="certs">
           <li ng-repeat="cert in certs | filter:query | orderBy:orderProp">
             <span>{{cert.cn}}</span>
             <p>{{cert.issuer}}</p>
           </li>
         </ul>
+
 
       </div>
     </div>
